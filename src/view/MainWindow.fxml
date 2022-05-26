@@ -1,74 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.MainWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
     <children>
-        <Label layoutX="76.0" layoutY="50.0" text="Sign in"
-               textFill="BLACK">
-            <font>
-                <Font name="System Bold" size="24.0" />
-            </font>
-        </Label>
-        <Label layoutX="30.0" layoutY="108.0" text="Username"
-               textFill="BLACK" />
-        <Label layoutX="31.0" layoutY="169.0" text="Password"
-               textFill="BLACK" />
-        <TextField fx:id="loginUser" layoutX="30.0" layoutY="131.0" />
-        <PasswordField fx:id="loginPass" layoutX="30.0"
-                       layoutY="200.0" />
-        <Button fx:id="loginBtn" layoutX="140.0" layoutY="273.0"
-                mnemonicParsing="false" text="Login"
-                textFill="BLACK" />
-        <Label layoutX="415.0" layoutY="50.0" text="Register"
-               textFill="BLACK">
-            <font>
-                <Font name="System Bold" size="24.0" />
-            </font>
-        </Label>
-        <Label layoutX="367.0" layoutY="108.0" text="Username"
-               textFill="BLACK" />
-        <TextField fx:id="regName" layoutX="361.0" layoutY="131.0" />
-        <Label layoutX="368.0" layoutY="169.0" text="Password"
-               textFill="BLACK" />
-        <PasswordField fx:id="regPass" layoutX="361.0"
-                       layoutY="200.0" />
-        <Label layoutX="368.0" layoutY="236.0" text="Confirm password"
-               textFill="BLACK" />
-        <PasswordField fx:id="regConfirmPass" layoutX="361.0"
-                       layoutY="260.0" />
-        <Button fx:id="registerBtn" layoutX="457.0" layoutY="332.0"
-                mnemonicParsing="false"  text="Register"
-                textFill="BLACK" />
-        <RadioButton fx:id="loginAdminCheck" layoutX="115.0"
-                     layoutY="244.0" mnemonicParsing="false" selected="true" text="Admin"
-                     textFill="BLACK">
-            <toggleGroup>
-                <ToggleGroup fx:id="group1" />
-            </toggleGroup>
-        </RadioButton>
-        <RadioButton fx:id="loginStudentCheck" layoutX="31.0"
-                     layoutY="244.0" mnemonicParsing="false" selected="true"
-                     text="Student" textFill="BLACK" toggleGroup="$group1" />
-        <RadioButton fx:id="regAdminCheck" layoutX="454.0"
-                     layoutY="302.0" mnemonicParsing="false" text="Admin" textFill="BLACK">
-            <toggleGroup>
-                <ToggleGroup fx:id="group2" />
-            </toggleGroup>
-        </RadioButton>
-        <RadioButton fx:id="regStudentCheck" layoutX="370.0"
-                     layoutY="302.0" mnemonicParsing="false" selected="true"
-                     text="Student" textFill="BLACK" toggleGroup="$group2" />
+        <BorderPane layoutY="-1.0" prefHeight="596.0" prefWidth="794.0">
+            <top>
+                <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #00236e#00236e;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="766.0" text="inHouse" textFill="#979797">
+                            <font>
+                                <Font name="AppleMyungjo Regular" size="48.0" />
+                            </font>
+                        </Label>
+                    </children></HBox>
+            </top>
+            <center>
+                <SplitPane dividerPositions="0.4605263157894737" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+                    <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="234.0" prefWidth="792.0">
+                            <children>
+                                <ImageView fitHeight="332.0" fitWidth="823.0" layoutX="-14.0" layoutY="-53.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                                    <image>
+                                        <Image url="@../images/MainImage.jpg" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="263.0" prefWidth="825.0" style="-fx-background-color: #00236e#00236e;">
+                            <children>
+                                <Button layoutX="70.0" layoutY="32.0" mnemonicParsing="false" prefHeight="187.0" prefWidth="166.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #00fabc#00fabc; -fx-background-radius: 10; -fx-border-width: 2.5;" textAlignment="CENTER" />
+                                <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="123.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/rent.jpg" />
+                                    </image>
+                                </ImageView>
+                                <Button alignment="CENTER" layoutX="310.0" layoutY="32.0" mnemonicParsing="false" prefHeight="187.0" prefWidth="166.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #00fabc#00fabc; -fx-background-radius: 10; -fx-border-width: 2.5;" textAlignment="CENTER" />
+                                <Button alignment="CENTER_RIGHT" layoutX="560.0" layoutY="32.0" mnemonicParsing="false" prefHeight="187.0" prefWidth="166.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #00fabc#00fabc; -fx-background-radius: 10; -fx-border-width: 2.5;" textAlignment="CENTER" />
+                                <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="363.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/buy.jpg" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="613.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/sell.jpg" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="81.0" layoutY="96.0" prefHeight="73.0" prefWidth="145.0" text="Easiest &amp; fastest way to find a perfect home" textAlignment="CENTER" wrapText="true">
+                                    <font>
+                                        <Font name="Arial Rounded MT Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <Button layoutX="113.0" layoutY="172.0" mnemonicParsing="false" onAction="#rentWindow" style="-fx-background-color: #78FBDC#78FBDC;" text="Find rentals" />
+                                <Button layoutX="350.0" layoutY="172.0" mnemonicParsing="false" onAction="#buyWindow" style="-fx-background-color: #78FBDC#78FBDC;" text="Search home" />
+                                <Button fx:id="btn" layoutX="595.0" layoutY="172.0" mnemonicParsing="false" onAction="#authenticationWindow" style="-fx-background-color: #78FBDC#78FBDC;" text="Create listning" />
+                                <Label layoutX="325.0" layoutY="97.0" prefHeight="69.0" prefWidth="140.0" text="Wide listing to make a smartest choise to buy" textAlignment="CENTER" wrapText="true">
+                                    <font>
+                                        <Font name="Arial Rounded MT Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="569.0" layoutY="101.0" prefHeight="62.0" prefWidth="144.0" text="Make the most succesful sale in easy way" textAlignment="CENTER" wrapText="true">
+                                    <font>
+                                        <Font name="Arial Rounded MT Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </items>
+                </SplitPane>
+            </center>
+        </BorderPane>
     </children>
 </AnchorPane>

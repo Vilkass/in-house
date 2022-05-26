@@ -2,35 +2,94 @@ package controller;
 
 import database.DbOperations;
 import javafx.event.ActionEvent;
-import javafx.stage.FileChooser;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import model.AuthenticationModel;
 
-import java.io.File;
-import java.util.List;
+import java.sql.SQLException;
 
 public class AuthenticationWindowController {
+    
+    // Register UI
+    @FXML TextField firstNameField;
+    @FXML TextField lastNameField;
+    @FXML TextField emailField;
+    @FXML TextField passwordField;
+    @FXML TextField confirmPasswordField;
+    @FXML TextField phoneField;
 
-    public void select(ActionEvent event) throws Exception {
-        FileChooser fc = new FileChooser();
+    // Login UI
+    @FXML TextField loginEmailField;
+    @FXML TextField loginPasswordField;
 
-        fc.setInitialDirectory(new File("/Users/anton/Desktop"));
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images only!", "*.png", "*.jpg"));
+    private AuthenticationModel auth;
 
+    public void login(ActionEvent event){
+        auth = new AuthenticationModel(loginEmailField.getText(), loginPasswordField.getText());
 
-
-        List<File> files = fc.showOpenMultipleDialog(null);
-
-        if( files != null) {
-            for(File file : files) {
-                DbOperations.savePropertyImage(file);
-            }
-
-        }else {
-            System.out.println("Wrong file!");
-
+        try{
+            DbOperations.loginSeller(auth);
+        }catch (Exception e){
+            errorBox("Failed to login!", e.getMessage());
+            return;
         }
+
+        infoBox("Success!", "Logged in successfully!");
+
     }
 
-    public void upload(ActionEvent event){
+    public void register(ActionEvent event){
+        firstNameField.setText("Anton");
+        lastNameField.setText("Volcok");
+        emailField.setText("test@gmail.com");
+        phoneField.setText("+87454154");
+        passwordField.setText("testavimas");
+        confirmPasswordField.setText("testavimas");
+        auth = new AuthenticationModel(firstNameField.getText(), lastNameField.getText(), emailField.getText(), passwordField.getText(), phoneField.getText());
+        try{
+            auth.verifyFirstName();
+            auth.verifyLastName();
+            auth.verifyEmail();
+            auth.verifyPhone();
+            auth.verifyPassword();
+            if(!passwordField.getText().equals(confirmPasswordField.getText())){
+                throw new Exception("Passwords do not match!");
+            }
+            DbOperations.registerSeller(auth);
+
+        }catch (SQLException e){
+            if(e.getMessage().contains("key 'seller.EMAIL'")){
+                errorBox("Failed to create account!", "User with that email already exists!");
+            }
+            e.printStackTrace();
+            return;
+        }catch (Exception e){
+            errorBox("Failed to create account!", e.getMessage());
+            return;
+        }
+
+
+        infoBox("Success!", "Account created successfully!");
 
     }
+
+    private static void errorBox(String title, String message){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText(message);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.showAndWait();
+    }
+
+    private static void infoBox(String title, String message){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(message);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.showAndWait();
+    }
+
+
 }

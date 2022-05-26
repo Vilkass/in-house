@@ -45,24 +45,33 @@ public class DbOperations {
 
     public static void registerSeller(Seller seller) throws SQLException {
         connection = connectToDb();
-        sql = "INSERT INTO Seller(FIRST_NAME, LAST_NAME, EMAIL, PASSWORD) VALUES(?, ?, ?, ?)";
+        sql = "INSERT INTO Seller(FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, PHONE) VALUES(?, ?, ?, ?, ?)";
         statement = connection.prepareStatement(sql);
         statement.setString(1, seller.getFirstName());
         statement.setString(2, seller.getLastName());
         statement.setString(3, seller.getEmail());
         statement.setString(4, seller.getPassword());
+        statement.setString(5, seller.getPhone());
         statement.execute();
         disconnectFromDb();
     }
 
-    public static void loginSeller(Seller seller) throws SQLException {
+    public static Seller loginSeller(Seller seller) throws Exception {
         connection = connectToDb();
-        sql = "SELECT * FROM Seller WHERE EMAIL = ? AND PASSWORD = ?";
+        sql = "SELECT FIRST_NAME, LAST_NAME, PHONE FROM Seller WHERE EMAIL = ? AND PASSWORD = ?";
         statement = connection.prepareStatement(sql);
         statement.setString(1, seller.getEmail());
         statement.setString(2, seller.getPassword());
-        // TODO  Rezult set
+        ResultSet rs = statement.executeQuery();
+        if(rs.next()){
+            seller.setFirstName(rs.getString(1));
+            seller.setLastName(rs.getString(2));
+            seller.setPhone(rs.getString(3));
+        }else {
+            throw new Exception("Wrong username/password!");
+        }
         disconnectFromDb();
+        return seller;
     }
 
     public static void savePropertyImage(File file) throws Exception {
