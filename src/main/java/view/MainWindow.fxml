@@ -1,12 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutY="-1.0" prefHeight="596.0" prefWidth="794.0">
+         <top>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #00236e#00236e;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../IMG/icon.jpg" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="766.0" text="inHouse" textFill="#979797">
+                     <font>
+                        <Font name="AppleMyungjo Regular" size="48.0" />
+                     </font>
+                  </Label>
+               </children></HBox>
+         </top>
+         <center>
+            <SplitPane dividerPositions="0.4605263157894737" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="234.0" prefWidth="792.0">
+                     <children>
+                        <ImageView fitHeight="332.0" fitWidth="823.0" layoutX="-14.0" layoutY="-53.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                           <image>
+                              <Image url="@MainImage.jpg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="263.0" prefWidth="825.0" style="-fx-background-color: #00236e#00236e;">
+                     <children>
+                        <Button layoutX="70.0" layoutY="32.0" mnemonicParsing="false" prefHeight="187.0" prefWidth="166.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #00fabc#00fabc; -fx-background-radius: 10; -fx-border-width: 2.5;" textAlignment="CENTER" />
+                        <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="123.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../IMG/rent.jpg" />
+                           </image>
+                        </ImageView>
+                        <Button alignment="CENTER" layoutX="310.0" layoutY="32.0" mnemonicParsing="false" prefHeight="187.0" prefWidth="166.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #00fabc#00fabc; -fx-background-radius: 10; -fx-border-width: 2.5;" textAlignment="CENTER" />
+                        <Button alignment="CENTER_RIGHT" layoutX="560.0" layoutY="32.0" mnemonicParsing="false" prefHeight="187.0" prefWidth="166.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #00fabc#00fabc; -fx-background-radius: 10; -fx-border-width: 2.5;" textAlignment="CENTER" />
+                        <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="363.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../IMG/buy.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="613.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../IMG/sell.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="81.0" layoutY="96.0" prefHeight="73.0" prefWidth="145.0" text="Easiest &amp; fastest way to find a perfect home" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="113.0" layoutY="172.0" mnemonicParsing="false" style="-fx-background-color: #78FBDC#78FBDC;" text="Find rentals" />
+                        <Button layoutX="350.0" layoutY="172.0" mnemonicParsing="false" style="-fx-background-color: #78FBDC#78FBDC;" text="Search home" />
+                        <Button layoutX="595.0" layoutY="172.0" mnemonicParsing="false" style="-fx-background-color: #78FBDC#78FBDC;" text="Create listning" />
+                        <Label layoutX="325.0" layoutY="97.0" prefHeight="69.0" prefWidth="140.0" text="Wide listing to make a smartest choise to buy" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="569.0" layoutY="101.0" prefHeight="62.0" prefWidth="144.0" text="Make the most succesful sale in easy way" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </center>
+      </BorderPane>
+   </children>
 </AnchorPane>
