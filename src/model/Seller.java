@@ -23,13 +23,6 @@ public class Seller {
         this.password = password;
     }
 
-    protected Seller login(){
-        return this;
-    }
-
-    protected void register(){
-
-    }
 
     public void verifyEmail() throws Exception{
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+

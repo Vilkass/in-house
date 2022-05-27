@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
     <children>
-        <BorderPane layoutY="-1.0" prefHeight="596.0" prefWidth="794.0">
+        <BorderPane layoutY="-1.0" prefHeight="596.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #00236e#00236e;" BorderPane.alignment="CENTER">
                     <children>

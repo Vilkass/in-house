@@ -1,6 +1,10 @@
 package model;
 
-public class AuthenticationModel extends Seller{
+import database.DbOperations;
+
+import java.sql.SQLException;
+
+public class AuthenticationModel extends Seller implements Authentication{
 
 
     public AuthenticationModel(String email, String password) {
@@ -12,14 +16,12 @@ public class AuthenticationModel extends Seller{
 
 
     @Override
-    protected Seller login() {
-        return this;
+    public Seller login() throws Exception {
+        return DbOperations.loginSeller(this);
     }
 
     @Override
-    protected void register() {
-
+    public void register() throws SQLException {
+        DbOperations.registerSeller(this);
     }
-
-
 }

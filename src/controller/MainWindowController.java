@@ -17,16 +17,11 @@ public class MainWindowController {
     private Stage stage;
 
     public void authenticationWindow(ActionEvent event) throws Exception {
-        loader = new FXMLLoader(getClass().getResource("/view/AuthenticationWindow.fxml"));
-        root = loader.load();
-        stage = (Stage)btn.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        loadWindow("/view/AuthenticationWindow.fxml");
     }
 
-    public void rentWindow(ActionEvent event){
-
+    public void rentWindow(ActionEvent event) throws IOException {
+        loadWindow("/view/RentWindow.fxml");
 
     }
 
@@ -34,5 +29,14 @@ public class MainWindowController {
 
     }
 
+
+    private void loadWindow(String path) throws IOException {
+        loader = new FXMLLoader(getClass().getResource(path));
+        root = loader.load();
+        stage = (Stage)btn.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
