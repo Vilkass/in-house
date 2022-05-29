@@ -19,8 +19,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="596.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RentWindow">
+<AnchorPane prefHeight="596.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RentWindowController">
    <children>
       <BorderPane layoutY="-1.0" prefHeight="596.0" prefWidth="794.0">
          <top>
@@ -131,7 +132,10 @@
                <center>
                   <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="393.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="393.0">
+                           <children>
+                              <WebView fx:id="webView" layoutX="76.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children></AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
                               <VBox layoutX="-4.0" layoutY="-2.0" prefHeight="539.0" prefWidth="397.0">

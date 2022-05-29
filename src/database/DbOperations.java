@@ -2,6 +2,7 @@ package database;
 
 import javafx.scene.image.Image;
 import model.Seller;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -58,15 +59,18 @@ public class DbOperations {
 
     public static Seller loginSeller(Seller seller) throws Exception {
         connection = connectToDb();
-        sql = "SELECT FIRST_NAME, LAST_NAME, PHONE FROM Seller WHERE EMAIL = ? AND PASSWORD = ?";
+        sql = "SELECT FIRST_NAME, LAST_NAME, PHONE, PASSWORD FROM Seller WHERE EMAIL = ?";
         statement = connection.prepareStatement(sql);
         statement.setString(1, seller.getEmail());
-        statement.setString(2, seller.getPassword());
         ResultSet rs = statement.executeQuery();
         if(rs.next()){
             seller.setFirstName(rs.getString(1));
             seller.setLastName(rs.getString(2));
             seller.setPhone(rs.getString(3));
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            if(!encoder.matches(seller.getPassword(), rs.getString(4))){
+                throw new Exception("Wrong username/password!");
+            }
         }else {
             throw new Exception("Wrong username/password!");
         }

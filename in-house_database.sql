@@ -4,6 +4,7 @@ CREATE TABLE PropertyType (ID int primary key auto_increment, TYPE varchar(255) 
 
 CREATE TABLE PropertyState (ID int primary key auto_increment, STATE varchar(255) UNIQUE KEY NOT NULL);
 
+DROP TABLE Seller;
 CREATE TABLE Seller (ID int primary key auto_increment, FIRST_NAME varchar(255) NOT NULL, LAST_NAME varchar(255) NOT NULL, EMAIL varchar(255) UNIQUE KEY NOT NULL, PASSWORD varchar(255) NOT NULL, PHONE varchar(255) NOT NULL);
 
 CREATE TABLE Property(ID int primary key auto_increment, PropertyTypeID int, PropertyStateID int, PRICE DOUBLE NOT NULL, BEDROOMS BIT NOT NULL, BATHROOMS BIT NOT NULL, COUNTRY varchar(255) NOT NULL, CITY varchar(255) NOT NULL, ADDRESS varchar(255) UNIQUE KEY NOT NULL);

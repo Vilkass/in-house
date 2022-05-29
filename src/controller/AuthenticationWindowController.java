@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.AuthenticationModel;
 import model.Seller;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -31,6 +32,7 @@ public class AuthenticationWindowController {
     @FXML TextField loginPasswordField;
 
     private AuthenticationModel auth;
+    private BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
     private Seller seller;
     private FXMLLoader loader;
     private Parent root;
@@ -38,7 +40,6 @@ public class AuthenticationWindowController {
 
     public void login(ActionEvent event){
         auth = new AuthenticationModel(loginEmailField.getText(), loginPasswordField.getText());
-
         try{
             seller = auth.login();
         }catch (Exception e){
@@ -54,7 +55,7 @@ public class AuthenticationWindowController {
 
     public void register(ActionEvent event){
 
-        auth = new AuthenticationModel(firstNameField.getText(), lastNameField.getText(), emailField.getText(), passwordField.getText(), phoneField.getText());
+        auth = new AuthenticationModel(firstNameField.getText(), lastNameField.getText(), emailField.getText(), passEncoder.encode(passwordField.getText()), phoneField.getText());
         try{
             auth.verifyFirstName();
             auth.verifyLastName();
@@ -69,7 +70,6 @@ public class AuthenticationWindowController {
             if(e.getMessage().contains("key 'seller.EMAIL'")){
                 errorBox("Failed to create account!", "User with that email already exists!");
             }
-            e.printStackTrace();
             return;
         }catch (Exception e){
             errorBox("Failed to create account!", e.getMessage());
