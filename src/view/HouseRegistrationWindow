@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="596.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Scroll">
+   <children>
+      <Pane layoutX="217.0" layoutY="186.0" prefHeight="54.0" prefWidth="794.0" style="-fx-background-color: #07126a#07126a #07126a#07126a;" AnchorPane.bottomAnchor="542.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="5.0" prefHeight="44.0" prefWidth="794.0" text="inHouse" textFill="#b6b6b6">
+               <font>
+                  <Font name="AppleMyungjo Regular" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../IMG/icon.jpg" />
+         </image>
+      </ImageView>
+      <ScrollPane layoutX="313.0" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1959.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
+         <content>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1959.0" prefWidth="794.0">
+               <children>
+                  <HBox prefHeight="32.0" prefWidth="794.0" />
+                  <HBox prefHeight="54.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of real estate" textAlignment="RIGHT" wrappingWidth="152.35454559326172">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="110.0" top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="302.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="23.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="163.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" textAlignment="RIGHT" wrappingWidth="260.8016815185547">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="129.0" prefWidth="404.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="15.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="52.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Deal type" textAlignment="RIGHT" wrappingWidth="259.8198547363281">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <RadioButton mnemonicParsing="false" prefHeight="20.0" prefWidth="65.0" text="Sell" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" prefHeight="16.0" prefWidth="61.0" text="Rent" textFill="#07126a">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="42.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" textAlignment="RIGHT" wrappingWidth="258.2728729248047">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="2.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="144.0">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="€" wrappingWidth="1.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="4.0" top="2.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="24.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Add photos" textAlignment="RIGHT" wrappingWidth="258.85028076171875">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="140.0" prefWidth="794.0">
+                     <children>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="1" textAlignment="CENTER" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="280.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="2" textAlignment="CENTER" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="3" textAlignment="CENTER" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="140.0" prefWidth="794.0">
+                     <children>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="4" textAlignment="CENTER" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="280.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="5" textAlignment="CENTER" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="6" textAlignment="CENTER" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="140.0" prefWidth="794.0">
+                     <children>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="7" textAlignment="CENTER" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="280.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="8" textAlignment="CENTER" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="9" textAlignment="CENTER" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="140.0" prefWidth="794.0">
+                     <children>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="10" textAlignment="CENTER" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="280.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="11" textAlignment="CENTER" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="12" textAlignment="CENTER" textFill="#07126a">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="City" textAlignment="RIGHT" wrappingWidth="152.35454559326172">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="110.0" top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="302.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="23.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Street" textAlignment="RIGHT" wrappingWidth="152.35454559326172">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="110.0" top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="302.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="23.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="House Nr" textAlignment="RIGHT" wrappingWidth="152.35454559326172">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="110.0" top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="23.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Apartment Nr" textAlignment="RIGHT" wrappingWidth="152.35454559326172">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="110.0" top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="23.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Square m² " textAlignment="RIGHT" wrappingWidth="152.35454559326172">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="110.0" top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="23.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="m²" textAlignment="RIGHT" wrappingWidth="19.677546501159668">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" textAlignment="RIGHT" wrappingWidth="152.35454559326172">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="110.0" top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                        <ChoiceBox prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="23.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Floor" textAlignment="RIGHT" wrappingWidth="152.35454559326172">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="110.0" top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                        <ChoiceBox prefWidth="50.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="23.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Bedrooms" textAlignment="RIGHT" wrappingWidth="152.35454559326172">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="110.0" top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                        <ChoiceBox prefWidth="50.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="23.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Bathrooms" textAlignment="RIGHT" wrappingWidth="152.35454559326172">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="110.0" top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                        <ChoiceBox prefWidth="50.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="23.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Year" textAlignment="RIGHT" wrappingWidth="152.35454559326172">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="110.0" top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                        <ChoiceBox prefWidth="50.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="23.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="55.0" prefWidth="794.0">
+                     <children>
+                        <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Heating" textAlignment="RIGHT" wrappingWidth="152.35454559326172">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="110.0" top="25.0" />
+                           </HBox.margin>
+                        </Text>
+                        <ChoiceBox prefWidth="50.0">
+                           <HBox.margin>
+                              <Insets left="30.0" top="23.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                     </children>
+                  </HBox>
+                  <Separator prefHeight="34.0" prefWidth="794.0" />
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <CheckBox mnemonicParsing="false" text="floor heating" textFill="#07126a">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="220.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="security" textFill="#07126a" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="high ceilings" textFill="#07126a" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="220.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="balcony" textFill="#07126a" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="220.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="parking" textFill="#07126a" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="220.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="internet" textFill="#07126a" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="cable TV" textFill="#07126a" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="security alarm" textFill="#07126a" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="fireplace" textFill="#07126a" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="220.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="terrace" textFill="#07126a" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="220.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="cameras" textFill="#07126a" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="separate entrance" textFill="#07126a" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="storage" textFill="#07126a" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="220.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="wardrobe" textFill="#07126a" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="220.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="dishwasher" textFill="#07126a" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="washing machine" textFill="#07126a" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="bath" textFill="#07126a" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="220.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="conditioning" textFill="#07126a" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </GridPane>
+                  <Pane prefHeight="106.0" prefWidth="794.0">
+                     <children>
+                        <Button layoutX="352.0" layoutY="34.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #d6feec#d6feec #d6feec#d6feec #d6feec#d6feec #d6feec; -fx-border-color: #07126a#07126a; -fx-background-radius: 5; -fx-border-radius: 5;" text="Create" textFill="#07126a">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
