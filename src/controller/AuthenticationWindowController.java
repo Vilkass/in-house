@@ -38,8 +38,9 @@ public class AuthenticationWindowController {
     private Parent root;
     private Stage stage;
 
-    public void login(ActionEvent event){
-        auth = new AuthenticationModel(loginEmailField.getText(), loginPasswordField.getText());
+    public void login(ActionEvent event) throws IOException {
+        //auth = new AuthenticationModel(loginEmailField.getText(), loginPasswordField.getText());
+        auth = new AuthenticationModel("sdfsdf@gmal.com", "testavimas");
         try{
             seller = auth.login();
         }catch (Exception e){
@@ -47,9 +48,17 @@ public class AuthenticationWindowController {
             return;
         }
 
-        infoBox("Success!", "Logged in successfully!");
-        loginEmailField.setText("");
-        loginPasswordField.setText("");
+//        infoBox("Success!", "Logged in successfully!");
+//        loginEmailField.setText("");
+//        loginPasswordField.setText("");
+        loader = new FXMLLoader(getClass().getResource("/view/AccountWindow.fxml"));
+        root = loader.load();
+        AccountWindowController account = loader.getController();
+        account.setSeller(auth);
+        stage = (Stage)emailField.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
     }
 
@@ -86,14 +95,16 @@ public class AuthenticationWindowController {
     }
 
     public void returnToMenu(ActionEvent event) throws IOException {
+        loadWindow("/view/MainWindow.fxml");
+    }
 
-        loader = new FXMLLoader(getClass().getResource("/view/MainWindow.fxml"));
+    private void loadWindow(String path) throws IOException {
+        loader = new FXMLLoader(getClass().getResource(path));
         root = loader.load();
         stage = (Stage)emailField.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
         private static void errorBox(String title, String message){
