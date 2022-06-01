@@ -16,7 +16,7 @@ public class CreateListingController {
         List<File> files = fc.showOpenMultipleDialog(null);
         if( files != null) {
             for(File file : files) {
-                DbOperations.savePropertyImage(file);
+                //DbOperations.savePropertyImage(file);
             }
         }else {
             System.out.println("Wrong file!");

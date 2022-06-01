@@ -34,9 +34,9 @@
         </Pane>
         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
         </ImageView>
-        <ScrollPane layoutX="313.0" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1959.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
+        <ScrollPane layoutX="313.0" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
             <content>
-                <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1959.0" prefWidth="794.0">
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="777.0">
                     <children>
                         <HBox prefHeight="54.0" prefWidth="794.0">
                             <children>
@@ -165,66 +165,73 @@
                         </Button>
                             </children>
                         </HBox>
-                        <HBox prefHeight="140.0" prefWidth="794.0">
-                            <children>
-                                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="1" textAlignment="CENTER" textFill="#07126a">
-                                    <HBox.margin>
-                                        <Insets left="280.0" />
-                                    </HBox.margin>
-                                </Button>
-                                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="2" textAlignment="CENTER" textFill="#07126a">
-                                    <HBox.margin>
-                                        <Insets left="20.0" />
-                                    </HBox.margin>
-                                </Button>
-                                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="3" textAlignment="CENTER" textFill="#07126a">
-                                    <HBox.margin>
-                                        <Insets left="20.0" />
-                                    </HBox.margin>
-                                </Button>
-                            </children>
+                  <VBox fx:id="vBox" prefWidth="100.0">
+                     <children>
+                              <HBox fx:id="row1" prefHeight="140.0" prefWidth="794.0">
+                                  <children>
+                              <ImageView fx:id="image1" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="290.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="image2" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="image3" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                                  </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                              </HBox>
+                        <HBox fx:id="row2" prefHeight="140.0" prefWidth="794.0">
+                           <children>
+                              <ImageView fx:id="image4" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="290.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="image5" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="image6" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="row3" prefHeight="140.0" prefWidth="794.0">
+                           <children>
+                              <ImageView fx:id="image7" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="290.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="image8" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="image9" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
-                        </HBox>
-                        <HBox prefHeight="140.0" prefWidth="794.0">
-                            <children>
-                                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="4" textAlignment="CENTER" textFill="#07126a">
-                                    <HBox.margin>
-                                        <Insets left="280.0" />
-                                    </HBox.margin>
-                                </Button>
-                                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="5" textAlignment="CENTER" textFill="#07126a">
-                                    <HBox.margin>
-                                        <Insets left="20.0" />
-                                    </HBox.margin>
-                                </Button>
-                                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="6" textAlignment="CENTER" textFill="#07126a">
-                                    <HBox.margin>
-                                        <Insets left="20.0" />
-                                    </HBox.margin>
-                                </Button>
-                            </children>
-                        </HBox>
-                        <HBox prefHeight="140.0" prefWidth="794.0">
-                            <children>
-                                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="7" textAlignment="CENTER" textFill="#07126a">
-                                    <HBox.margin>
-                                        <Insets left="280.0" />
-                                    </HBox.margin>
-                                </Button>
-                                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="8" textAlignment="CENTER" textFill="#07126a">
-                                    <HBox.margin>
-                                        <Insets left="20.0" />
-                                    </HBox.margin>
-                                </Button>
-                                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e0e0e0#e0e0e0 #e0e0e0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 0.5;" text="9" textAlignment="CENTER" textFill="#07126a">
-                                    <HBox.margin>
-                                        <Insets left="20.0" />
-                                    </HBox.margin>
-                                </Button>
-                            </children>
-                        </HBox>
+                  </VBox>
                   <HBox prefHeight="54.0" prefWidth="794.0">
                      <children>
                         <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Country" textAlignment="RIGHT" wrappingWidth="152.35454559326172">
@@ -516,15 +523,29 @@
                                 </CheckBox>
                             </children>
                         </GridPane>
-                        <Pane prefHeight="106.0" prefWidth="794.0">
-                            <children>
-                                <Button layoutX="352.0" layoutY="34.0" mnemonicParsing="false" onAction="#createProperty" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #d6feec#d6feec #d6feec#d6feec #d6feec#d6feec #d6feec; -fx-border-color: #07126a#07126a; -fx-background-radius: 5; -fx-border-radius: 5;" text="Create" textFill="#07126a">
-                                    <font>
-                                        <Font size="17.0" />
-                                    </font>
-                                </Button>
-                            </children>
-                        </Pane>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#createProperty" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #07126a;" text="Create" textFill="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="300.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#returnBack" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #d6feec#d6feec #d6feec#d6feec #d6feec#d6feec #d6feec; -fx-border-color: #07126a#07126a; -fx-background-radius: 5; -fx-border-radius: 5;" text="Cancel" textFill="#07126a">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
                     </children>
                 </VBox>
             </content>

@@ -1,5 +1,8 @@
 package model;
 
+import java.io.File;
+import java.util.ArrayList;
+
 public class Property {
 
     private String name;
@@ -33,6 +36,7 @@ public class Property {
     private boolean dishwasher;
     private boolean washingMachine;
     private boolean conditioning;
+    private ArrayList<File> images;
 
 
     public Property(String propertyType, String name, String desc, String propertyState, double price, String country, String city, String address, double sqrft, byte bedrooms, byte bathrooms){
@@ -278,5 +282,22 @@ public class Property {
 
     public void setConditioning(boolean conditioning) {
         this.conditioning = conditioning;
+    }
+
+    public String getProperties() {
+        String property = "";
+        property += bedrooms + " bed";
+        if(bedrooms > 1){
+            property += "s";
+        }
+        property += " | " + bathrooms + " ba | " + sqrft + " sqft | " + propertyState;
+        return property;
+    }
+
+    public void setImages(ArrayList<File> images) {
+        this.images = images;
+    }
+    public ArrayList<File> getImages() {
+        return images;
     }
 }

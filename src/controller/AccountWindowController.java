@@ -17,6 +17,7 @@ import model.Seller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AccountWindowController implements Initializable{
@@ -65,16 +66,40 @@ public class AccountWindowController implements Initializable{
         lastNameField.setText(seller.getLastName());
         emailField.setText(seller.getEmail());
         phoneField.setText(seller.getPhone());
+        setUserProperties();
+    }
+
+    private void setUserProperties(){
+        ArrayList<Property> properties = DbOperations.getPropertyList(seller);
+        HBox hbox = new HBox();
+        int i = 1;
+        System.out.println(properties.size());
+        for(Property property : properties){
+            if(i % 2 == 1) {
+                hbox = new HBox();
+            }
+            loader = new FXMLLoader(getClass().getResource("/view/Listing.fxml"));
+            ListingController lc = new ListingController(String.valueOf(property.getPrice()), property.getProperties(), property.getCity() + ", " +property.getAddress(), property.getImages().get(0));
+            loader.setController(lc);
+            try {
+                hbox.getChildren().add((Node)loader.load());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if(i % 2 == 0 || properties.size() == i){
+                vBox.getChildren().add(hbox);
+            }
+            i++;
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        /*
         System.out.println(DbOperations.getPropertyList(seller).size());
         for(Property property : DbOperations.getPropertyList(seller)){
             System.out.println(property.getName());
         }
-
-
         HBox hbox = new HBox();
         loader = new FXMLLoader(getClass().getResource("/view/Listing.fxml"));
         ListingController lc = new ListingController("$100,000,000", "asdasdasad", "Adresas");
@@ -86,7 +111,7 @@ public class AccountWindowController implements Initializable{
             e.printStackTrace();
         }
         vBox.getChildren().add(hbox);
-
+*/
     }
 
 }

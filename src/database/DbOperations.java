@@ -1,6 +1,5 @@
 package database;
 
-import javafx.scene.image.Image;
 import model.Property;
 import model.Seller;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,7 +8,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -18,7 +17,7 @@ import java.util.Date;
 
 public class DbOperations {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/InHouse?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/InHouse?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false&sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false";
     private static final String USER = "root";
     private static final String PASS = "slaptazodis";
 
@@ -81,27 +80,34 @@ public class DbOperations {
         return seller;
     }
 
-    public static void savePropertyImage(File file) throws Exception {
-        int propertyID = 0;
+    public static void savePropertyImage(File file, int propertyID, int index) throws Exception {
         FileInputStream fis = new FileInputStream(file);
-        connection = connectToDb();
-        sql = "INSERT INTO Images VALUES(?, ?)";
+        sql = "INSERT INTO Images VALUES(?, ?, ?)";
         statement = connection.prepareStatement(sql);
         statement.setInt(1, propertyID);
         statement.setBinaryStream(2, fis, (int) file.length());
+        statement.setInt(3, index);
         statement.execute();
-        disconnectFromDb();
     }
 
-    public static ArrayList<BufferedImage> getPropertyImages(int propertyID) throws Exception{
-        ArrayList<BufferedImage> images = new ArrayList<>();
+    public static ArrayList<File> getPropertyImages(int propertyID) throws Exception{
+        ArrayList<File> images = new ArrayList<>();
         connection = connectToDb();
-        sql = "SELECT IMAGE FROM Images WHERE PropertyID = ?";
+        sql = "SELECT IMAGE, INDEKS FROM Images WHERE PropertyID = ?";
         statement = connection.prepareStatement(sql);
+        statement.setInt(1, propertyID);
         ResultSet rs = statement.executeQuery();
+        Blob blob;
+        File file;
+        FileOutputStream fos;
+        byte b[];
         while(rs.next()){
-            InputStream is = rs.getBinaryStream(1);
-            images.add(ImageIO.read(is));
+            file = new File("/Users/anton/Desktop/Projektai/in-house/src/resources/temp/Property"+propertyID+"file"+rs.getInt(2)+".png");
+            fos = new FileOutputStream(file);
+            blob = rs.getBlob(1);
+            b=blob.getBytes(1,(int)blob.length());
+            fos.write(b);
+            images.add(file);
         }
         disconnectFromDb();
         return images;
@@ -130,13 +136,15 @@ public class DbOperations {
         try{
             connection = connectToDb();
             int sellerID = getSellerID(seller);
-            sql = "select p.NAME, p.DESCRIPTION, pt.TYPE, ps.STATE, p.PRICE, p.COUNTRY, p.CITY, p.ADDRESS, p.BATHROOMS, p.BEDROOMS, p.SQRFT, p.YEAR, p.FLOOR_HEATING, p.BATH,p.BALCONY, p.PARKING,p.FIREPLACE, p.TERRACE, p.STORAGE, p.WARDROBE, p.HIGH_CEILINGS, p.SECURITY, p.INTERNET, p.CABLE_TV, p.ALARM, p.CAMERAS, p.ENTRANCE, p.DISHWASHER, p.WASHING_MACHINE, p.CONDITIONING from property as p INNER JOIN PropertyType as pt ON p.PropertyTypeID = pt.ID INNER JOIN PropertyState as ps ON p.PropertyStateID = ps.ID WHERE p.SellerID = ?";
+            sql = "select p.NAME, p.DESCRIPTION, pt.TYPE, ps.STATE, p.PRICE, p.COUNTRY, p.CITY, p.ADDRESS, p.BATHROOMS, p.BEDROOMS, p.SQRFT, p.YEAR, p.FLOOR_HEATING, p.BATH,p.BALCONY, p.PARKING,p.FIREPLACE, p.TERRACE, p.STORAGE, p.WARDROBE, p.HIGH_CEILINGS, p.SECURITY, p.INTERNET, p.CABLE_TV, p.ALARM, p.CAMERAS, p.ENTRANCE, p.DISHWASHER, p.WASHING_MACHINE, p.CONDITIONING, p.ID from property as p INNER JOIN PropertyType as pt ON p.PropertyTypeID = pt.ID INNER JOIN PropertyState as ps ON p.PropertyStateID = ps.ID WHERE p.SellerID = ?";
             statement = connection.prepareStatement(sql);
             statement.setInt(1, sellerID);
             ResultSet rs = statement.executeQuery();
+            Property property;
             while (rs.next()){
-                properties.add(new Property(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getByte(9), rs.getByte(10), rs.getDouble(11), rs.getInt(12), rs.getBoolean(13), rs.getBoolean(14),  rs.getBoolean(15), rs.getBoolean(16) , rs.getBoolean(17) , rs.getBoolean(18) , rs.getBoolean(19) , rs.getBoolean(20) , rs.getBoolean(21), rs.getBoolean(22), rs.getBoolean(23), rs.getBoolean(24), rs.getBoolean(25), rs.getBoolean(26), rs.getBoolean(27), rs.getBoolean(28), rs.getBoolean(29), rs.getBoolean(30)               ));
-                System.out.println("Test");
+                property = new Property(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getByte(9), rs.getByte(10), rs.getDouble(11), rs.getInt(12), rs.getBoolean(13), rs.getBoolean(14),  rs.getBoolean(15), rs.getBoolean(16) , rs.getBoolean(17) , rs.getBoolean(18) , rs.getBoolean(19) , rs.getBoolean(20) , rs.getBoolean(21), rs.getBoolean(22), rs.getBoolean(23), rs.getBoolean(24), rs.getBoolean(25), rs.getBoolean(26), rs.getBoolean(27), rs.getBoolean(28), rs.getBoolean(29), rs.getBoolean(30)            );
+                property.setImages(getPropertyImages(rs.getInt(31)));
+                properties.add(property);
             }
 
         }catch (Exception e){
@@ -146,7 +154,7 @@ public class DbOperations {
     }
 
 
-    public static void saveProperty(Property property, Seller seller) throws SQLException {
+    public static void saveProperty(Property property, Seller seller) throws Exception {
         connection = connectToDb();
         int typeID = getPropertyTypeID(property);
         int stateID = getPropertySateID(property);
@@ -189,7 +197,25 @@ public class DbOperations {
         statement.setString(32, formatter.format(date));
         statement.setInt(33, property.getYearBuild());
         statement.execute();
+
+        ArrayList<File> images = property.getImages();
+        int propertyID  = getPropertyID(property);
+        for(int i = 0; i < images.size(); i++){
+            savePropertyImage(images.get(i), propertyID, i);
+        }
         disconnectFromDb();
+    }
+
+    private static int getPropertyID(Property property) throws SQLException {
+        int propertyID = 0;
+        sql = "SELECT ID FROM Property WHERE ADDRESS = ?";
+        statement = connection.prepareStatement(sql);
+        statement.setString(1, property.getAddress());
+        ResultSet rs = statement.executeQuery();
+        if(rs.next()){
+            propertyID = rs.getInt(1);
+        }
+        return propertyID;
     }
 
     private static int getSellerID(Seller seller) throws SQLException {

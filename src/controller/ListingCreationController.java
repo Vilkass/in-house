@@ -9,16 +9,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Property;
 import model.Seller;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -60,8 +65,25 @@ public class ListingCreationController implements Initializable {
     @FXML ChoiceBox<String> typeCB;
 
 
+    @FXML ImageView image1;
+    @FXML ImageView image2;
+    @FXML ImageView image3;
+    @FXML ImageView image4;
+    @FXML ImageView image5;
+    @FXML ImageView image6;
+    @FXML ImageView image7;
+    @FXML ImageView image8;
+    @FXML ImageView image9;
+    @FXML VBox vBox;
+    @FXML HBox row1;
+    @FXML HBox row2;
+    @FXML HBox row3;
+
+    ArrayList<ImageView> previewImages = new ArrayList<>();
+
     private Property property;
     private Seller seller;
+    private ArrayList<File> images = new ArrayList<>();
 
     private FXMLLoader loader;
     private Parent root;
@@ -77,6 +99,24 @@ public class ListingCreationController implements Initializable {
         for(int i = 2022; i >=1990; i--){
             yearCB.getItems().add(i);
         }
+        previewImages.add(image1);
+        previewImages.add(image2);
+        previewImages.add(image3);
+        previewImages.add(image4);
+        previewImages.add(image5);
+        previewImages.add(image6);
+        previewImages.add(image7);
+        previewImages.add(image8);
+        previewImages.add(image9);
+        vBox.setVisible(false);
+        vBox.setMinHeight(0);
+        vBox.setPrefHeight(0);
+        row1.setMinHeight(0);
+        row1.setPrefHeight(0);
+        row2.setMinHeight(0);
+        row2.setPrefHeight(0);
+        row3.setMinHeight(0);
+        row3.setPrefHeight(0);
     }
 
     public void priceValueChange(ActionEvent event){
@@ -87,7 +127,7 @@ public class ListingCreationController implements Initializable {
         }
     }
 
-    public void createProperty(ActionEvent event) throws SQLException, IOException {
+    public void createProperty(ActionEvent event) throws Exception {
         String propertyState;
         if(sellRB.isSelected()){
             propertyState = "For sale";
@@ -114,6 +154,7 @@ public class ListingCreationController implements Initializable {
         property.setBath(bathCB.isSelected());
         property.setConditioning(conditioningCB.isSelected());
         property.setYearBuild(yearCB.getSelectionModel().getSelectedItem());
+        property.setImages(images);
 
         DbOperations.saveProperty(property, seller);
         infoBox("Success!", "Property listing created successfully!");
@@ -146,15 +187,52 @@ public class ListingCreationController implements Initializable {
         List<File> files = fc.showOpenMultipleDialog(null);
         if( files != null) {
             for(File file : files) {
-                //DbOperations.savePropertyImage(file);
+                images.add(file);
             }
         }else {
             System.out.println("Wrong file!");
         }
+        displaySelectedImages();
     }
+
+    public void returnBack(ActionEvent event) throws IOException {
+        loadWindow("/view/AccountWindow.fxml");
+    }
+
 
 
     public void setSeller(Seller seller){
         this.seller = seller;
+    }
+
+
+    private void displaySelectedImages(){
+        int size = images.size();
+        if(size != 0){
+            vBox.setMinHeight(Region.USE_COMPUTED_SIZE);
+            vBox.setPrefHeight(Region.USE_COMPUTED_SIZE);
+            vBox.setVisible(true);
+            row1.setMinHeight(Region.USE_COMPUTED_SIZE);
+            row1.setPrefHeight(Region.USE_COMPUTED_SIZE);
+            if(size > 3){
+                row2.setMinHeight(Region.USE_COMPUTED_SIZE);
+                row2.setPrefHeight(Region.USE_COMPUTED_SIZE);
+            }
+            if(size > 6){
+                row3.setMinHeight(Region.USE_COMPUTED_SIZE);
+                row3.setPrefHeight(Region.USE_COMPUTED_SIZE);
+            }
+        }
+        int i = 0;
+        for(File file : images){
+            InputStream is = null;
+            try {
+                is = new FileInputStream(file);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            previewImages.get(i).setImage(new Image(is));
+            i++;
+        }
     }
 }
