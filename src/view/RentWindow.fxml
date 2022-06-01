@@ -1,4 +1,4 @@
-xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -9,7 +9,6 @@ xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -21,8 +20,9 @@ xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="596.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RentWindow">
+<AnchorPane prefHeight="596.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RentWindowController">
    <children>
       <BorderPane layoutY="-1.0" prefHeight="596.0" prefWidth="794.0">
          <top>
@@ -30,7 +30,6 @@ xml version="1.0" encoding="UTF-8"?>
                <children>
                   <ImageView fitHeight="26.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../IMG/icon.jpg" />
                      </image>
                      <HBox.margin>
                         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
@@ -149,7 +148,10 @@ xml version="1.0" encoding="UTF-8"?>
                <center>
                   <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="393.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="393.0">
+                           <children>
+                              <WebView fx:id="webView" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children></AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
                               <VBox layoutX="-4.0" layoutY="-2.0" prefHeight="539.0" prefWidth="397.0">

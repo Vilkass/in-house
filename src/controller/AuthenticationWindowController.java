@@ -40,7 +40,7 @@ public class AuthenticationWindowController {
 
     public void login(ActionEvent event) throws IOException {
         //auth = new AuthenticationModel(loginEmailField.getText(), loginPasswordField.getText());
-        auth = new AuthenticationModel("sdfsdf@gmal.com", "testavimas");
+        auth = new AuthenticationModel("anton.volcok@gmail.com", "testavimas");
         try{
             seller = auth.login();
         }catch (Exception e){

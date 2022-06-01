@@ -128,6 +128,10 @@ public class ListingCreationController implements Initializable {
     }
 
     public void createProperty(ActionEvent event) throws Exception {
+        if(nameField.getText().isBlank() || descField.getText().isBlank() || priceField.getText().isBlank() || countryField.getText().isBlank() || cityField.getText().isBlank() || addressField.getText().isBlank() || sqrftField.getText().isBlank() || bedroomsCB.getSelectionModel().isEmpty() || bathsCB.getSelectionModel().isEmpty() || yearCB.getSelectionModel().isEmpty()|| images.size() == 0 || typeCB.getSelectionModel().isEmpty()){
+            infoBox("Error!", "Please fill all the fields to create property listing!");
+            return;
+        }
         String propertyState;
         if(sellRB.isSelected()){
             propertyState = "For sale";
@@ -183,7 +187,7 @@ public class ListingCreationController implements Initializable {
     public void chooseFiles(ActionEvent event){
         FileChooser fc = new FileChooser();
         fc.setInitialDirectory(new File("/Users/anton/Desktop"));
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images only!", "*.png", "*.jpg"));
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images only!", "*.png", "*.jpg", "*.jpeg"));
         List<File> files = fc.showOpenMultipleDialog(null);
         if( files != null) {
             for(File file : files) {
