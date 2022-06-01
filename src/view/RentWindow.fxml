@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -19,9 +21,8 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="596.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RentWindowController">
+<AnchorPane prefHeight="596.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RentWindow">
    <children>
       <BorderPane layoutY="-1.0" prefHeight="596.0" prefWidth="794.0">
          <top>
@@ -70,72 +71,85 @@
                               <Font size="10.0" />
                            </font>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="55.0" style="-fx-background-color: #d6feec#d6feec; -fx-border-color: #07126a#07126a #07126a#07126a; -fx-border-width: 0.5; -fx-background-radius: 5; -fx-border-radius: 2;" text="For Rent" textAlignment="RIGHT" textFill="#07126a">
+                        <MenuButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="65.0" style="-fx-background-color: #d6feec#d6feec #d6feec#d6feec; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #07126a #07126a; -fx-border-width: 0.5;" text="For Rent" textAlignment="CENTER" textFill="#07126a">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="For Rent" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                            <MenuItem mnemonicParsing="false" text="For Sale" />
+                          </items>
                            <font>
                               <Font size="10.0" />
                            </font>
                            <HBox.margin>
-                              <Insets bottom="6.0" left="200.0" right="5.0" top="6.0" />
+                              <Insets bottom="6.0" left="170.0" right="6.0" top="6.0" />
                            </HBox.margin>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <padding>
-                              <Insets bottom="2.0" top="2.0" />
-                           </padding>
-                        </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="55.0" style="-fx-background-color: #d6feec#d6feec; -fx-border-color: #07126a#07126a #07126a#07126a; -fx-border-width: 0.5; -fx-background-radius: 5; -fx-border-radius: 2;" text="Price" textAlignment="RIGHT" textFill="#07126a">
+                        </MenuButton>
+                        <MenuButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="50.0" style="-fx-background-color: #d6feec#d6feec #d6feec#d6feec; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #07126a #07126a; -fx-border-width: 0.5;" text="Price" textFill="#07126a">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="0 - 200 €" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="200 - 400 €" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="400 - 600 €" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="600 - 800 €" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="800 - 1200 €" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="1200 - .... €" />
+                           </items>
                            <font>
                               <Font size="10.0" />
                            </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <padding>
-                              <Insets bottom="2.0" top="2.0" />
-                           </padding>
                            <HBox.margin>
                               <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                            </HBox.margin>
-                        </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="55.0" style="-fx-background-color: #d6feec#d6feec; -fx-border-color: #07126a#07126a #07126a#07126a; -fx-border-width: 0.5; -fx-background-radius: 5; -fx-border-radius: 2;" text="Bedrooms" textAlignment="RIGHT" textFill="#07126a">
+                        </MenuButton>
+                        <MenuButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="75.0" style="-fx-background-color: #d6feec#d6feec #d6feec#d6feec; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #07126a #07126a; -fx-border-width: 0.5;" text="Bedrooms" textFill="#07126a">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="1 bedroom" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="2 bedrooms" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="3 bedrooms" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="4 bedrooms" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="5+ bedrooms" />
+                           </items>
                            <font>
                               <Font size="10.0" />
                            </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <padding>
-                              <Insets bottom="2.0" top="2.0" />
-                           </padding>
                            <HBox.margin>
                               <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                            </HBox.margin>
-                        </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="55.0" style="-fx-background-color: #d6feec#d6feec; -fx-border-color: #07126a#07126a #07126a#07126a; -fx-border-width: 0.5; -fx-background-radius: 5; -fx-border-radius: 2;" text="Home Type" textAlignment="RIGHT" textFill="#07126a">
+                        </MenuButton>
+                        <MenuButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="50.0" style="-fx-background-color: #d6feec#d6feec #d6feec#d6feec; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #07126a #07126a; -fx-border-width: 0.5;" text="Type" textAlignment="CENTER" textFill="#07126a">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Apartment" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="House" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Condominium" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Multi-family house" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Villa" />
+                           </items>
                            <font>
                               <Font size="10.0" />
                            </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <padding>
-                              <Insets bottom="2.0" top="2.0" />
-                           </padding>
                            <HBox.margin>
                               <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                            </HBox.margin>
-                        </Button>
+                        </MenuButton>
                      </children>
                   </HBox>
                </top>
                <center>
                   <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="393.0">
-                           <children>
-                              <WebView fx:id="webView" layoutX="76.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children></AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="393.0" />
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
                               <VBox layoutX="-4.0" layoutY="-2.0" prefHeight="539.0" prefWidth="397.0">
@@ -146,28 +160,42 @@
                                              <children>
                                                 <HBox layoutX="-1.0" layoutY="-1.0" prefHeight="43.0" prefWidth="397.0" style="-fx-background-color: #d6feec#d6feec #d6feec#d6feec;">
                                                    <children>
-                                                      <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Results list" textAlignment="CENTER" wrappingWidth="67.33139038085938">
+                                                      <Text fill="#07126a" strokeType="OUTSIDE" strokeWidth="0.0" text="Results list" textAlignment="CENTER" wrappingWidth="93.4542236328125">
                                                          <font>
-                                                            <Font size="14.0" />
+                                                            <Font name="AppleMyungjo Regular" size="18.0" />
                                                          </font>
                                                          <HBox.margin>
                                                             <Insets left="8.0" top="16.0" />
                                                          </HBox.margin>
                                                       </Text>
-                                                      <Text fill="#5e585e" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort by:" textAlignment="RIGHT" wrappingWidth="255.607177734375">
-                                                         <HBox.margin>
-                                                            <Insets top="25.0" />
-                                                         </HBox.margin>
+                                                      <MenuButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="60.0" style="-fx-background-color: #d6feec#d6feec #d6feec#d6feec; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #07126a #07126a; -fx-border-width: 0.5;" text="Sort by" textFill="#07126a">
+                                                         <items>
+                                                            <MenuItem mnemonicParsing="false" text="Payment - high to low" />
+                                                            <SeparatorMenuItem mnemonicParsing="false" />
+                                                            <MenuItem mnemonicParsing="false" text="Payment - low to high" />
+                                                            <SeparatorMenuItem mnemonicParsing="false" />
+                                                            <MenuItem mnemonicParsing="false" text="Newest" />
+                                                            <SeparatorMenuItem mnemonicParsing="false" />
+                                                            <MenuItem mnemonicParsing="false" text="Bedrooms" />
+                                                            <SeparatorMenuItem mnemonicParsing="false" />
+                                                            <MenuItem mnemonicParsing="false" text="Square m2" />
+                                                            <SeparatorMenuItem mnemonicParsing="false" />
+                                                            <MenuItem mnemonicParsing="false" text="Default" />
+                                                         </items>
                                                          <font>
                                                             <Font size="10.0" />
                                                          </font>
-                                                      </Text>
-                                                      <ChoiceBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="11.0" prefWidth="25.0">
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
                                                          <HBox.margin>
-                                                            <Insets bottom="12.0" left="5.0" right="5.0" top="25.0" />
+                                                            <Insets left="200.0" top="18.0" />
                                                          </HBox.margin>
-                                                      </ChoiceBox>
+                                                      </MenuButton>
                                                    </children>
+                                                   <opaqueInsets>
+                                                      <Insets left="300.0" />
+                                                   </opaqueInsets>
                                                 </HBox>
                                                 <GridPane layoutX="4.0" layoutY="43.0" prefHeight="481.0" prefWidth="390.0">
                                                   <columnConstraints>
