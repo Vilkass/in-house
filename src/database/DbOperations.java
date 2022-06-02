@@ -153,6 +153,26 @@ public class DbOperations {
         return properties;
     }
 
+    public static ArrayList<Property> getAllProperties(){
+        ArrayList<Property> properties = new ArrayList<>();
+        try{
+            connection = connectToDb();
+            sql = "select p.NAME, p.DESCRIPTION, pt.TYPE, ps.STATE, p.PRICE, p.COUNTRY, p.CITY, p.ADDRESS, p.BATHROOMS, p.BEDROOMS, p.SQRFT, p.YEAR, p.FLOOR_HEATING, p.BATH,p.BALCONY, p.PARKING,p.FIREPLACE, p.TERRACE, p.STORAGE, p.WARDROBE, p.HIGH_CEILINGS, p.SECURITY, p.INTERNET, p.CABLE_TV, p.ALARM, p.CAMERAS, p.ENTRANCE, p.DISHWASHER, p.WASHING_MACHINE, p.CONDITIONING, p.ID from property as p INNER JOIN PropertyType as pt ON p.PropertyTypeID = pt.ID INNER JOIN PropertyState as ps ON p.PropertyStateID = ps.ID";
+            statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            Property property;
+            while (rs.next()){
+                property = new Property(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getByte(9), rs.getByte(10), rs.getDouble(11), rs.getInt(12), rs.getBoolean(13), rs.getBoolean(14),  rs.getBoolean(15), rs.getBoolean(16) , rs.getBoolean(17) , rs.getBoolean(18) , rs.getBoolean(19) , rs.getBoolean(20) , rs.getBoolean(21), rs.getBoolean(22), rs.getBoolean(23), rs.getBoolean(24), rs.getBoolean(25), rs.getBoolean(26), rs.getBoolean(27), rs.getBoolean(28), rs.getBoolean(29), rs.getBoolean(30)            );
+                property.setImages(getPropertyImages(rs.getInt(31)));
+                properties.add(property);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return properties;
+    }
+
 
     public static void saveProperty(Property property, Seller seller) throws Exception {
         connection = connectToDb();
@@ -230,6 +250,23 @@ public class DbOperations {
         return sellerID;
     }
 
+    public static Seller getPropertySeller(Property property){
+        connection = connectToDb();
+        Seller seller = null;
+        try {
+            sql = "select s.FIRST_NAME, s.LAST_NAME, s.EMAIL, s.PHONE from Seller as s inner join Property as p on s.id = p.SellerID WHERE p.ADDRESS = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, property.getAddress());
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                seller = new Seller(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return seller;
+    }
+
     private static int getPropertyTypeID(Property property) throws SQLException {
         int typeID = 0;
         sql = "SELECT ID FROM PropertyType WHERE TYPE = ?";
@@ -254,4 +291,23 @@ public class DbOperations {
         return stateID;
     }
 
+    public static Property getPropertyByAddress(String address) {
+        Property property = null;
+        try{
+            connection = connectToDb();
+            sql = "select p.NAME, p.DESCRIPTION, pt.TYPE, ps.STATE, p.PRICE, p.COUNTRY, p.CITY, p.ADDRESS, p.BATHROOMS, p.BEDROOMS, p.SQRFT, p.YEAR, p.FLOOR_HEATING, p.BATH,p.BALCONY, p.PARKING,p.FIREPLACE, p.TERRACE, p.STORAGE, p.WARDROBE, p.HIGH_CEILINGS, p.SECURITY, p.INTERNET, p.CABLE_TV, p.ALARM, p.CAMERAS, p.ENTRANCE, p.DISHWASHER, p.WASHING_MACHINE, p.CONDITIONING, p.ID from property as p INNER JOIN PropertyType as pt ON p.PropertyTypeID = pt.ID INNER JOIN PropertyState as ps ON p.PropertyStateID = ps.ID WHERE p.ADDRESS = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, address);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                property = new Property(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getByte(9), rs.getByte(10), rs.getDouble(11), rs.getInt(12), rs.getBoolean(13), rs.getBoolean(14),  rs.getBoolean(15), rs.getBoolean(16) , rs.getBoolean(17) , rs.getBoolean(18) , rs.getBoolean(19) , rs.getBoolean(20) , rs.getBoolean(21), rs.getBoolean(22), rs.getBoolean(23), rs.getBoolean(24), rs.getBoolean(25), rs.getBoolean(26), rs.getBoolean(27), rs.getBoolean(28), rs.getBoolean(29), rs.getBoolean(30)            );
+                property.setImages(getPropertyImages(rs.getInt(31)));
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        
+        return property;
+    }
 }

@@ -39,8 +39,7 @@ public class AuthenticationWindowController {
     private Stage stage;
 
     public void login(ActionEvent event) throws IOException {
-        //auth = new AuthenticationModel(loginEmailField.getText(), loginPasswordField.getText());
-        auth = new AuthenticationModel("anton.volcok@gmail.com", "testavimas");
+        auth = new AuthenticationModel(loginEmailField.getText(), loginPasswordField.getText());
         try{
             seller = auth.login();
         }catch (Exception e){

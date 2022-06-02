@@ -17,6 +17,12 @@ public class Seller {
         this.password = password;
         this.phone = phone;
     }
+    public Seller(String firstName, String lastName, String email, String phone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+    }
 
     public Seller(String email, String password) {
         this.email = email;

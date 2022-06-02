@@ -10,12 +10,15 @@
 
 <AnchorPane prefHeight="300.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="250.0" layoutY="116.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+      <VBox layoutX="250.0" layoutY="116.0" onMouseClicked="#showListingInfo" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
          <children>
             <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/sell.png" />
-               </image></ImageView>
+               </image>
+               <VBox.margin>
+                  <Insets right="10.0" />
+               </VBox.margin></ImageView>
             <Label fx:id="priceLabel" text="\$500,00">
                <VBox.margin>
                   <Insets top="10.0" />
@@ -24,7 +27,7 @@
                   <Font name="Arial Rounded MT Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="parametersLabel" text="2 bds 2 ba 2,200 sqft - For sale">
+            <Label fx:id="parametersLabel" prefHeight="16.0" prefWidth="230.0" text="2 bds 2 ba 2,200 sqft - For sale">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
